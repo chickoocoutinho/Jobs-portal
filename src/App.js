@@ -1,21 +1,15 @@
+import { Routes, Route } from "react-router-dom";
+import Details from "./components/Details/Details";
+import List from "./components/List/List";
+
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<p>
-					ghbsjfjsdbfjhbdfjhdjhsbhjfbjh Edit <code>src/App.js</code> and save to
-					reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<>
+			<Routes>
+				<Route path="/" element={<List />} />
+				<Route path="about" element={<Details />} />
+			</Routes>
+		</>
 	);
 }
 
