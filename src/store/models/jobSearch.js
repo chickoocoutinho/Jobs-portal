@@ -1,8 +1,8 @@
 const initialState = {
 	input: "",
-	department: "",
-	location: "",
-	functions: "",
+	department: { value: "", label: "" },
+	location: { value: "", label: "" },
+	functions: { value: "", label: "" },
 };
 
 const jobSearch = {

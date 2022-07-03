@@ -52,13 +52,12 @@ const jobResults = {
 	},
 	effects: (dispatch) => ({
 		getJobListing(payload, rootState) {
-			console.log(rootState);
 			this.updateJobsStart();
 			return getJobs({
 				input: rootState.jobSearch.input,
-				department: rootState.jobSearch.department,
-				location: rootState.jobSearch.location,
-				functions: rootState.jobSearch.functions,
+				department: rootState.jobSearch.department.value,
+				location: rootState.jobSearch.location.value,
+				functions: rootState.jobSearch.functions.value,
 			}).then((respose) => this.updateJobs(respose.data));
 		},
 		getDropdowns() {

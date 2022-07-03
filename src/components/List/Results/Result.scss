@@ -1,0 +1,82 @@
+@import "../../../theme/saas/mixins";
+@import "../../../theme/saas/variables";
+
+.heading-container {
+	display: flex;
+	flex-direction: column;
+	margin: 4.5rem 0;
+	.heading {
+		@include subHeading;
+		margin-bottom: 0.5rem;
+		font-size: 2.5rem;
+	}
+	.line {
+		width: 100px;
+		height: 0.4rem;
+
+		display: block;
+		background-color: $primary;
+	}
+}
+
+.department-jobs-container {
+	display: grid;
+	grid-template-columns: 100%;
+	row-gap: 4.5rem;
+}
+
+.job-listing-container {
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.actions {
+		margin-left: 1rem;
+		.btn {
+			@include subHeading;
+			font-size: 1rem;
+			background-color: transparent;
+			border: 0rem;
+			padding: 0.5rem 1rem;
+			cursor: pointer;
+		}
+		.apply {
+			color: $primary;
+			border: 1px solid $primary;
+			border-radius: 20px;
+			margin-right: 1rem;
+		}
+		.view {
+			color: $secondary;
+		}
+	}
+	.job-data {
+		display: flex;
+		flex-direction: column;
+		.title {
+			@include subHeading;
+			font-size: 1.4rem;
+			margin: 0;
+			margin-bottom: 0.8rem;
+		}
+		.details {
+			display: flex;
+			.details-chip {
+				margin-right: 2rem;
+			}
+			.details-text {
+				margin-left: 0.2rem;
+			}
+			.job-type {
+				@include subHeading;
+				font-size: 0.8rem;
+				background-color: $grey;
+				color: $secondary;
+				padding: 0 0.5rem;
+
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}

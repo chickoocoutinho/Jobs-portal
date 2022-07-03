@@ -34,21 +34,21 @@ const SearchDropdowns = () => {
 		];
 	}, [departmentDropdown, functionDropdown, locationDropdown]);
 
-	const handleDepartmentChange = ({ value }) => {
-		dispatch.jobSearch.updateDepartment(value);
+	const handleDepartmentChange = (option) => {
+		dispatch.jobSearch.updateDepartment(option);
 		dispatch.jobResults.getJobListing();
 	};
 
-	const handleLocationChange = ({ value }) => {
-		dispatch.jobSearch.updateDepartment(value);
+	const handleLocationChange = (option) => {
+		dispatch.jobSearch.updateLocation(option);
 		dispatch.jobResults.getJobListing();
 	};
 
-	const handleFunctionChange = ({ value }) => {
-		dispatch.jobSearch.updateDepartment(value);
+	const handleFunctionChange = (option) => {
+		dispatch.jobSearch.updateFunction(option);
 		dispatch.jobResults.getJobListing();
 	};
-
+	console.log(department.value);
 	return (
 		<div className="dropdownContainer">
 			<Select
@@ -57,13 +57,7 @@ const SearchDropdowns = () => {
 				name="Department"
 				placeholder="Department"
 				onChange={handleDepartmentChange}
-				value={
-					departmentDropdownOptions[
-						departmentDropdownOptions.findIndex(
-							({ value }) => value === department
-						)
-					]
-				}
+				value={department.value ? department : null}
 			/>
 			<Select
 				isLoading={dropdownLoading}
@@ -71,11 +65,7 @@ const SearchDropdowns = () => {
 				name="Location"
 				placeholder="Location"
 				onChange={handleLocationChange}
-				value={
-					locationDropdownOptions[
-						locationDropdownOptions.findIndex(({ value }) => value === location)
-					]
-				}
+				value={location.value ? location : null}
 			/>
 			<Select
 				isLoading={dropdownLoading}
@@ -83,13 +73,7 @@ const SearchDropdowns = () => {
 				name="Function"
 				placeholder="Function"
 				onChange={handleFunctionChange}
-				value={
-					functionDropdownOptions[
-						functionDropdownOptions.findIndex(
-							({ value }) => value === functions
-						)
-					]
-				}
+				value={functions.value ? functions : null}
 			/>
 		</div>
 	);

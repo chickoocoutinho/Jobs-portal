@@ -1,7 +1,19 @@
+import { useSelector } from "react-redux";
+import DepartmentHeading from "./DepartmentHeading";
+import DepartmentJobs from "./DepartmentJobs";
+
+import "./Result.scss";
+
 const Results = () => {
+	const departmentList = useSelector((state) => state.jobResults.list);
 	return (
 		<>
-			<h1>Result</h1>
+			{departmentList.map((department, index) => (
+				<div key={index + department.department}>
+					<DepartmentHeading heading={department.department} />
+					<DepartmentJobs jobs={department.jobs} />
+				</div>
+			))}
 		</>
 	);
 };

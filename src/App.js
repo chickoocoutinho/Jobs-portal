@@ -7,12 +7,12 @@ import "./App.scss";
 
 function App() {
 	return (
-		<>
+		<div className="app">
 			<Routes>
-				<Route path="/" element={<List />} />
-				<Route path="about" element={<Details />} />
+				<Route path="/" element={<List />} exact />
+				<Route path="/job/:id/:slug" element={<Details />} />
 			</Routes>
-		</>
+		</div>
 	);
 }
 
