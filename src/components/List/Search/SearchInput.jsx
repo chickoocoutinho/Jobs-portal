@@ -7,8 +7,6 @@ const SearchInput = () => {
 	const dispatch = useDispatch();
 	const inputValue = useSelector((state) => state.jobSearch.input);
 
-	const r = useSelector((state) => state.jobResults.list);
-
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const debouncedSearch = useCallback(
 		debounce((body) => {
