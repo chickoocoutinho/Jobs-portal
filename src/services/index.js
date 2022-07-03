@@ -1,9 +1,16 @@
 import axios from "axios";
 
-const baseUrl = "https://teknorix.jobsoid.com/";
+const baseUrl = "https://teknorix.jobsoid.com";
 
-export const getJobs = () => {
-	return axios.get(baseUrl + "/api/v1/jobs");
+export const getJobs = ({ input, department, location, functions }) => {
+	let query =
+		(input && `q=${input}&`) +
+		(location && `loc=${location}&`) +
+		(department && `dept=${department}&`) +
+		(functions && `fun=${functions}`);
+	if (query.charAt(query.length - 1) === "&") query = query.slice(0, -1);
+
+	return axios.get(baseUrl + "/api/v1/jobs?" + query);
 };
 
 export const getJobDetails = (id) => {
@@ -15,7 +22,7 @@ export const getDepartments = () => {
 };
 
 export const getLocations = () => {
-	return axios.get(baseUrl + "/api/v1/location");
+	return axios.get(baseUrl + "/api/v1/locations");
 };
 
 export const getFunctions = () => {

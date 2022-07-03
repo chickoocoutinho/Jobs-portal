@@ -2,7 +2,7 @@ const initialState = {
 	input: "",
 	department: "",
 	location: "",
-	function: "",
+	functions: "",
 };
 
 const jobSearch = {
@@ -18,7 +18,7 @@ const jobSearch = {
 			return { ...state, location: payload };
 		},
 		updateFunction: (state, payload) => {
-			return { ...state, function: payload };
+			return { ...state, functions: payload };
 		},
 		resetFilters: () => {
 			return initialState;
