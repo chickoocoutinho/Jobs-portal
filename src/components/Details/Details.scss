@@ -1,0 +1,59 @@
+@import "../../theme/saas/mixins";
+@import "../../theme/saas/variables";
+
+.title {
+	@include subHeading;
+	font-size: 1.5rem;
+}
+
+.job-name {
+	@include heading;
+	font-size: 2rem;
+}
+
+.details {
+	display: flex;
+	font-size: 1.2rem;
+	.details-chip {
+		margin-right: 2rem;
+	}
+	.details-text {
+		margin-left: 0.2rem;
+	}
+	.job-type {
+		@include subHeading;
+		font-size: 1rem;
+		background-color: $grey;
+		color: $secondary;
+		padding: 0 0.5rem;
+
+		display: flex;
+		align-items: center;
+	}
+}
+
+.btn {
+	@include subHeading;
+	font-size: 1rem;
+	background-color: transparent;
+	border: 0rem;
+	padding: 0.5rem 4rem;
+	cursor: pointer;
+}
+.apply {
+	color: #fff;
+	background-color: $primary;
+	font-size: 1.4rem;
+	border-radius: 50px;
+	margin: 3rem 0;
+}
+
+.description {
+	display: flex;
+
+	flex-direction: column;
+
+	:first-child {
+		@include subHeading;
+	}
+}
