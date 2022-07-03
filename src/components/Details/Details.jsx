@@ -48,7 +48,7 @@ const Details = () => {
 			<div className="split-container">
 				<DetailsText description={jobData.description} />
 				<div className="right-container">
-					<OtherPositions />
+					<OtherPositions department={jobData.department.title} />
 					<ShareOptions
 						applyUrl={jobData.applyUrl}
 						company={jobData.company}

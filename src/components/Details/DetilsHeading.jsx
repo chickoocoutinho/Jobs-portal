@@ -11,7 +11,7 @@ const DetilsHeading = ({
 	title,
 }) => {
 	return (
-		<div>
+		<div className="heading">
 			<h4 className="title">{`${department} Department at ${company}`}</h4>
 			<h3 className="job-name">{title}</h3>
 			<div className="details">
