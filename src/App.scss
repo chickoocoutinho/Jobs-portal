@@ -1,0 +1,10 @@
+@import "./theme/saas/variables";
+@import "./theme/saas/mixins";
+
+* {
+	@include paragraph;
+}
+
+body {
+	margin: 0;
+}
