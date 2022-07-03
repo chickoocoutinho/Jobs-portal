@@ -1,0 +1,43 @@
+@import "../../../theme/saas/mixins";
+@import "../../../theme/saas/variables";
+
+.bg-box {
+	background-color: $lightBg;
+	padding: 1.5rem 1rem;
+}
+
+.search-box {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1.5rem;
+	.search-input {
+		height: 25px;
+		border: 1px solid hsl(0, 0%, 80%);
+		border-radius: 4px;
+		background-color: white;
+		padding: 0.5rem 1rem 0.5rem 0.5rem;
+
+		display: grid;
+		grid-template-columns: calc(99% - 30px) 30px;
+		column-gap: 1%;
+
+		input {
+			outline: 0px;
+			border: 0px;
+		}
+		.icon {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	.dropdownContainer {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: 1.5rem;
+		margin-top: 1rem;
+	}
+}
+
+.search-data {
+	display: flex;
+}

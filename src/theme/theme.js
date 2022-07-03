@@ -4,6 +4,7 @@ export const colors = {
 	secondaryLight: "#575c6a",
 	grey: "#d3d7e7",
 	greyLight: "#f0f3fb",
+	lightBg: "#f4f4f4",
 };
 
 // export const font
