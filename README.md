@@ -83,6 +83,7 @@ and I've also stored them as Scss variables. To maintain the consistensy of font
  1. Need proper data to show "Other Openings" on details page.
  2. Missed a `key` prop in the return statement of a `map` function in `SearchFieldData.jsx`
  3. Global loader has `position: absolute`, needs to be changes to `position: fixed` .
+ 4. View Button on List page redirects to extrnal Link. On Click of any other part of the listing redirects to details.
 
 ## TODO
 
