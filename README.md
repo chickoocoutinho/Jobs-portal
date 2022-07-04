@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Jobs Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+` React JS Developer Test for Technorix `
 
-## Available Scripts
+## Problem Statement
 
-In the project directory, you can run:
+Teknorix wishes to build a ReactJS application to display their active job openings.
 
-### `npm start`
+The application should show a list of all active job openings with search/filter functionality. Job opening details should be shown on a unique url.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Result
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### List page
 
-### `npm test`
+![image](https://user-images.githubusercontent.com/50771217/177085607-ae2da6e6-576f-45f7-816a-c191f1b4a8e8.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/50771217/177085643-9b342d08-3dd7-4c72-bd73-39dd68b3e79f.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Details page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/50771217/177085687-ae4d8962-8a56-406e-9272-959874c2d6e2.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/50771217/177085725-58ce8927-62dc-4439-a0ba-7c695e865956.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Global Loader
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](https://user-images.githubusercontent.com/50771217/177085776-3b5b258e-599d-456d-a7b0-59dc8de5155a.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Features
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Rematch and Rematch Persist
 
-### Code Splitting
+One of the requirements of the search was to retain the search fields on page revisit and on page reload. To solve this I have used `@rematch/core` (Redux) along with `@rematch/persist`. On each store update `persist` stores the data in the local store and updates it on reload. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![image](https://user-images.githubusercontent.com/50771217/177085882-2f265ec0-9cd5-43eb-96e9-8488a7ca555a.png)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+I chose not to use query parameters to achieve this since query params are `undefined` on initial run of `useEffect` which makes it harder to handle errors and lloading states.
 
-### Making a Progressive Web App
+### Social media sharing (Bonus)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I've used `react-share` to implement Facebook, Linkedin, Twitter share buttons. 
 
-### Advanced Configuration
+Share message:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```js
+`${company} is Hiring a ${title}. Apply Here: ${applyUrl}`
+```
 
-### Deployment
+### Debounced Input
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The search bar on the List page makes a debounced Api call ask and when the user types and the duration between 2 key strokes is `500ms`.  I've done this because this provides better UX as compared to a search button.
+![image](https://user-images.githubusercontent.com/50771217/177085911-54eeb7ce-9009-43b1-b865-ceb4dcae9b70.png)
 
-### `npm run build` fails to minify
+( Note: this can be changed to `1000ms` depending on UX requirements )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Global Theme file and Scss
+
+When projects grow big in size managing common css values becomes a hassel. To overcome this, I've used stored the colours used in a global theme file, `theme.js`
+and I've also stored them as Scss variables. To maintain the consistensy of fonts, I;ve used scss mixins to create `font-family` `font-weight` pairs.
+
+#### Future improvements of Styling
+
+ 1. Let each component have its on `.scss` file.
+ 2. Identify and ceate common reuseable components.
+ 3. Add font sizes to scss variables and theme file.
+
+
+## ISSUES
+
+ 1. Need proper data to show "Other Openings" on details page.
+ 2. Missed a `key` prop in the return statement of a `map` function in `SearchFieldData.jsx`
+ 3. Global loader has `position: absolute`, needs to be changes to `position: fixed` .
+
+## TODO
+
+ - [ ] Use `react-helmet` to add title to pages for better SEO.
+ - [ ] Handle error cases for Api`s
+
+    
