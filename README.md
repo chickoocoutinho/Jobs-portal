@@ -8,6 +8,11 @@ Teknorix wishes to build a ReactJS application to display their active job openi
 
 The application should show a list of all active job openings with search/filter functionality. Job opening details should be shown on a unique url.
 
+## Demo
+[Final Site](https://capable-bienenstitch-6ed7b6.netlify.app/)
+[4 Hour Mark](https://amazing-hummingbird-337a18.netlify.app/)
+
+
 ## Result
 
 ### List page
